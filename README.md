@@ -1,8 +1,24 @@
 ## Laboratory work XIII
 
-Данная лабораторная работа посвещена изучению работы программы СURL.
-
 ## Tasks
+Написать программы на **C++** для сериализации и десериализации структуры `Person`.
+
+Структура `Person` определяется следующим образом:
+
+```cpp
+struct Email {
+  std::string nickname;
+  std::string server;
+};
+
+struct Person {
+  std::string  first_name;
+  std::string  last_name;
+  Email        email;
+  size_t       age;
+  std::string  phone;
+};
+```
 
 ## Tutorial
 Определяем глобальные переменные.
@@ -10,9 +26,9 @@
 $ export GITHUB_USERNAME=babyrage666
 $ alias edit=subl
 ```
-Подготовка к выполнению **Лабораторной работы №12**.
+Подготовка к выполнению **Лабораторной работы №13**.
 ```ShellSession
-$ git clone https://github.com/${GITHUB_USERNAME}/lab10 projects/lab12
+$ git clone https://github.com/${GITHUB_USERNAME}/lab12 projects/lab13
 $ cd projects/lab12
 $ git remote remove origin
 $ git remote add origin https://github.com/${GITHUB_USERNAME}/lab12
@@ -21,19 +37,18 @@ $ rm -R sources # удаляем лишние каталоги
 Редактируем **CMakeLists.txt**
 ```ShellSession
 $ edit CMakeList.txt
-# Подключаем пакеты CURl и OpenSSl.
-# Добавляем таргет main.cpp
+# Подключаем пакет nlohmann_json
+# Добавляем таргеты pack/unpack.cpp
 ```
-Создаем **main.cpp**
+Создаем **pack/unpack.cpp**
 ```ShellSession
-$ edit main.cpp
+$ mkdir sources && cd sources
+$ edit pack.cpp
+$ edit unpack.cpp
 ```
 Редактируем **.travis.yml**
 ```ShellSession
-$ cat >> .travis.yml <<EOF
-- cd _build
-- ./main
-EOF
+$ edit .travis.yml
 ```
 Собираем проект в **CMake**
 ```ShellSession
@@ -44,7 +59,7 @@ $ cmake --build _build
 Отправляем данные на удаленный репозиторий в **GitHub**
 ```ShellSession
 $ git add .
-$ git commit -m"done"
+$ git commit -m"added everythg"
 $ git push origin master
 ```
 
@@ -54,8 +69,13 @@ $ travis login --auto
 $ travis enable
 ```
 
-## Links
-- [Libcurl](https://curl.haxx.se/libcurl/c/)
-- [HTTP](https://ru.wikipedia.org/wiki/HTTP)
-- [Curlcpp](https://github.com/JosephP91/curlcpp)
-- [Boost_Asio](http://www.boost.org/doc/libs/1_65_0/doc/html/boost_asio.html)
+## Result
+$jsonlint file.json
+Вывод:
+{
+  "first_name": "Georgy",
+  "last_name": "Kapotyuk",
+  "email_nickname": "kapotyuk0901@yandex.ru",
+  "age": 20,
+  "phone": "+79661286844"
+}
