@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/babyrage666/lab12.svg?branch=master)](https://travis-ci.org/babyrage666/lab12)
-## Laboratory work XII
+## Laboratory work XIII
 
 Данная лабораторная работа посвещена изучению работы программы СURL.
 
