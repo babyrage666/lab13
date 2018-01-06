@@ -26,10 +26,10 @@ struct Person
 int main(int argc, char* argv[]) 
 {
   string path = argv[1];
-  Person pers
+  Person pers;
   json xxx;
   ifstream f;
-  f.open(pers);
+  f.open(path);
   f >> xxx;
   f.close();
 
