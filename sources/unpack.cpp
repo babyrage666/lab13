@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
   Person pers
   json xxx;
   ifstream f;
-  f.open(Path);
+  f.open(pers);
   f >> xxx;
   f.close();
 
